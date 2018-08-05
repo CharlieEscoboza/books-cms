@@ -1,0 +1,29 @@
+<h1>Edit book page</h1>
+
+<form enctype="multipart/form-data" method="POST">
+  <label for="name">
+    <input type="hidden" name="name-cache" value="{{book.name}}">
+    Name: <input type="text" name="name" id="name" value="{{book.name}}">
+  </label>
+  <label for="edition">
+    <input type="hidden" name="edition-cache" value="{{book.edition}}">
+    Edition: <input type="text" name="edition" id="edition" value="{{book.edition}}">
+  </label>
+  <label for="ISBN">
+    <input type="hidden" name="ISBN-cache" value="{{value.ISBN}}">
+    ISBN: <input type="text" name="ISBN" id="ISBN" value="{{book.ISBN}}">
+  </label>
+  <label for="tags">
+    <input type="hidden" name="tags-cache" value="{{book.tags}}">
+    Tags: <input type="text" name="tags" id="tags" value="{{book.tags}}">
+  </label>
+  <label for="review">
+    <input type="hidden" name="review-cache" value="{{book.review}}">
+    Review: <input type="number" name="review" id="review" value="{{book.review}}">
+  </label>
+  <label for="picture">
+    <input type="hidden" name="picture-cache" value="{{book.picture}}">
+    Picture: <input type="file" name="picture" id="picture" value="{{book.picture}}">
+  </label>
+  <button type="submit">Save</button>
+</form>

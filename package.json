@@ -1,0 +1,20 @@
+{
+  "name": "modern-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "handlebars": "^4.0.11",
+    "hapi": "^17.5.1",
+    "mongoose": "^5.1.4",
+    "nodemon": "^1.17.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

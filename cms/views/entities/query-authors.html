@@ -1,0 +1,13 @@
+<h1>Query authors page</h1>
+
+{{#if authors.length}}
+<ol>
+  {{#each authors as |author|}}
+  <li>
+    <a href="/author/{{author._id}}">{{author.name}}</a> <a href="/update/author/{{author._id}}/">Edit</a>
+  </li>
+  {{/each}}
+</ol>
+{{else}}
+<div>There is no author to show</div>
+{{/if}}

@@ -1,0 +1,13 @@
+<h1>Query books page</h1>
+
+{{#if books.length}}
+<ol>
+  {{#each books as |book|}}
+  <li>
+    <a href="/book/{{book._id}}">{{book.name}}</a> <a href="/update/book/{{book._id}}/">Edit</a>
+  </li>
+  {{/each}}
+</ol>
+{{else}}
+<div>There is no book to show</div>
+{{/if}}

@@ -1,0 +1,17 @@
+<h1>Edit author page</h1>
+
+<form method="POST">
+  <label>
+    <input type="hidden" name="name-cache" value="{{author.name}}">
+    Name: <input type="text" name="name" id="name" value="{{author.name}}">
+  </label>
+  <label>
+    <input type="hidden" name="address-cache" value="{{author.address}}">
+    Address: <input type="text" name="address" id="address" value="{{author.address}}">
+  </label>
+  <label>
+    <input type="hidden" name="phone-cache" value="{{author.phoneNumber}}">
+    Phone Number: <input type="text" name="phone" id="phone" value="{{author.phoneNumber}}">
+  </label>
+  <button type="submit">Save</button>
+</form>

@@ -1,0 +1,23 @@
+<h1>Query book page</h1>
+
+<section>
+  <p>
+    Name: {{book.name}}
+  </p>
+  <p>
+    Edition: {{book.edition}}
+  </p>
+  <p>
+    ISBN: {{book.ISBN}}
+  </p>
+  <ul>
+    Tags: {{#each book.tags as |tag|}}
+    <li>{{tag}}</li>
+    {{/each}}
+  </ul>
+  <p>
+    Review: {{book.review}}
+  </p>
+  <img src="data:image/png;base64,{{book.picture}}" alt="{{book.name}}">
+  <a href="/update/book/{{book._id}}/">Edit</a>
+</section>
