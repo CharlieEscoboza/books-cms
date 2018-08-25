@@ -1,89 +1,47 @@
-const Hapi = require('hapi');
-const mongoose = require('mongoose');
-const Inert = require('inert');
-const hapiSwagger = require('hapi-swagger');
-const Vision = require('vision');
+const express = require('express'),
+  expressHandlebars = require('express-handlebars'),
+  app = express(),
+  authorRoutes = require('./entities/authors/routes'),
+  bookRoutes = require('./entities/books/routes'),
+  editorialRoutes = require('./entities/editorials/routes'),
+  PORT = 8080,
+  HOST = 'localhost';
 
-const ROUTES = require('./server/routes');
 
-const Pack = require('./package.json');
+  const HP_DATA = {
+    title: 'The Librarian CMS',
+    sections: [
+      [
+        {
+          title: 'Query', links: [
+            { link: '/editorials', label: 'Editorials' },
+            { link: '/authors', label: 'Authors' },
+            { link: '/books', label: 'Books' }]
+        }
+      ],
+      [
+        {
+          title: 'Creation', links: [
+            { link: '/editorials/create', label: 'Editorial' },
+            { link: '/authors/create', label: 'Author' },
+            { link: '/books/create', label: 'Book' }]
+        }
+      ]]
+  };
 
-// GraphQL version
-const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
-const paintingSchema = require('./graphql/schema');
+app.engine('.hbs', expressHandlebars.create({
+  defaultLayout: 'main',
+  extname: '.hbs'
+}).engine);
 
-// Rest version
-const Painting = require('./models/painting');
+app.set('view engine', '.hbs');
 
-const PORT = 5000;
-const HOST = 'localhost';
+app.use('/authors', authorRoutes);
+app.use('/books', bookRoutes);
+app.use('/editorials', editorialRoutes);
 
-const server = Hapi.server({
-  port: PORT,
-  host: HOST
+app.get('/', (req, resp) => {
+  resp.render('home', HP_DATA);
 });
 
-async function init() {
-  await server.register({
-    plugin: graphiqlHapi,
-    options: {
-      path: '/graphiql',
-      graphiqlOptions: {
-        endpointURL: '/graphql'
-      },
-      route: {
-        cors: true
-      }
-    }
-  });
-
-  await server.register({
-    plugin: graphqlHapi,
-    options: {
-      path: '/graphql',
-      graphqlOptions: {
-        schema: paintingSchema
-      },
-      route: {
-        cors: true
-      }
-    }
-  });
-
-  await server.register([
-    Inert,
-    Vision,
-    {
-      plugin: hapiSwagger,
-      options: {
-        info: {
-          title: 'Librarian API Documentation',
-          version: Pack.version
-        }
-      }
-    }
-  ]);
-
-  await server.start();
-
-  mongoose.connect('mongodb+srv://admin:Lacasadelsol25!@cluster0-xmfxf.mongodb.net/test?retryWrites=true');
-  mongoose.connection.once('open', () => {
-    console.log('connected to database');
-  });
-
-
-  server.route(ROUTES);
-  server.views({
-    engines: {
-      html: require('handlebars')
-    },
-    relativeTo: __dirname,
-    path: './cms/views',
-    layout: true,
-    layoutPath: './cms/views/layouts'
-  });
-
-  console.log(`App is running on http://${HOST}:${PORT}`);
-}
-
-init();
+app.listen(PORT, HOST, () => console.log(`App running on http://${HOST}:${PORT}`));

@@ -1,0 +1,15 @@
+{{#each sections as |section|}}
+  <section class="action">
+    {{#each section as |data|}}
+    <h1>{{data.title}}</h1>
+
+    <ol>
+      {{#each data.links as |action|}}
+      <li>
+        <a href="{{action.link}}">{{action.label}}</a>
+      </li>
+      {{/each}}
+    </ol>
+    {{/each}}
+  </section>
+{{/each}}

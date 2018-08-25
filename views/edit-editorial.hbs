@@ -1,0 +1,17 @@
+<h1>Edit editorial page</h1>
+
+<form method="POST">
+  <label>
+    <input type="hidden" name="name-cache" value="{{editorial.name}}">
+    Name: <input type="text" name="name" id="name" value="{{editorial.name}}">
+  </label>
+  <label>
+    <input type="hidden" name="address-cache" value="{{editorial.address}}">
+    Address: <input type="text" name="address" id="address" value="{{editorial.address}}">
+  </label>
+  <label>
+    <input type="hidden" name="phone-cache" value="{{editorial.phoneNumber}}">
+    Phone Number: <input type="text" name="phone" id="phone" value="{{editorial.phoneNumber}}">
+  </label>
+  <button type="submit">Save</button>
+</form>

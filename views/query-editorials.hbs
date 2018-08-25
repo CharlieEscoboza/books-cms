@@ -1,0 +1,13 @@
+<h1>Query editorials page</h1>
+
+{{#if editorials.length}}
+<ol>
+  {{#each editorials as |editorial|}}
+  <li>
+    <a href="/editorial/{{editorial._id}}">{{editorial.name}}</a> <a href="/update/editorial/{{editorial._id}}/">Edit</a>
+  </li>
+  {{/each}}
+</ol>
+{{else}}
+<div>There is no editorial to show</div>
+{{/if}}
