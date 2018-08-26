@@ -1,43 +1,39 @@
 'use strict';
 
-const router = require('express').Router();
+const expressRoute = require('express').Router();
 
-router.get('/create', (req, resp) => {
-  return resp.render('create-author', {title: 'Create author'});
+expressRoute.get('/create', (req, resp) => {
+  return resp.render('create-author', { title: 'Create author' });
 });
 
-router.post('/create/:id', (req, resp) => {
-  return resp.render('create-author', {title: 'Create author'});
+expressRoute.get('/create/:id', (req, resp) => {
+  return resp.render('create-author', { title: 'Create author' });
 });
 
-router.get('/update/:id', (req, resp) => {
-  return resp.render('create-author', {title: 'Create author'});
+expressRoute.get('/update/:id', (req, resp) => {
+  return resp.render('edit-author', { title: 'Update author' });
 });
 
-router.post('/update/:id', (req, resp) => {
-  return resp.render('create-author', {title: 'Create author'});
+expressRoute.get('/update:id', (req, resp) => {
+  return resp.render('edit-author', { title: 'Update author' });
 });
 
-router.get('/:id', (req, resp) => {
-  return resp.render('query-author', {title: 'Get author'});
+expressRoute.get('/', (req, resp) => {
+  return resp.render('query-authors', { title: 'Get authors', authors: [] });
 });
 
-router.get('/', (req, resp) => {
-  return resp.render('query-authors', {title: 'Get authors'});
-});
-
-module.exports = router;
+module.exports = expressRoute;
 
 // [
-//   // {
-//   //   method: 'GET',
-//   //   path: '/authors',
-//   //   config: {
-//   //     description: 'Give all authors',
-//   //     tags: ['library', 'api', 'authors']
-//   //   },
-//   //   handler: getAuthors
-//   // },
+//   {
+//     method: 'GET',
+//     path: '/authors',
+//     config: {
+//       description: 'Give all authors',
+//       tags: ['library', 'api', 'authors']
+//     },
+//     handler: getAuthors
+//   },
 //   {
 //     method: 'GET',
 //     path: '/author/{id}',
@@ -82,5 +78,5 @@ module.exports = router;
 //       tags: ['library', 'api', 'author', 'update']
 //     },
 //     handler: updateAuthor
-//   }
+//   },
 // ];

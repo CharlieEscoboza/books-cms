@@ -6,13 +6,11 @@
   "dependencies": {
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "nodemon": "^1.17.5",
-    "redis": "^2.8.0"
+    "nodemon": "^1.17.5"
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "nodemon ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./index.js"
   },
   "keywords": [],
   "author": "",
