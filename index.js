@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express'),
   expressHandlebars = require('express-handlebars'),
   app = express(),
@@ -44,4 +46,4 @@ app.get('/', (req, resp) => {
   resp.render('home', HP_DATA);
 });
 
-app.listen(PORT, HOST, () => console.log(`App running on http://${HOST}:${PORT}`));
+app.listen(PORT, HOST, () => console.log(`App running on http://${HOST}:${PORT}`)); /* eslint-disable-line no-console */

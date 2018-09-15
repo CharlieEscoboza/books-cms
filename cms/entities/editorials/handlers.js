@@ -1,6 +1,7 @@
 'use strict';
 
-const entitiesReducer = require('../../../server/helpers/entities');
+const { EditorialsModel } = require('../../../db/models'),
+  entitiesReducer = require('../../../server/helpers/entities');
 
 function getEditorials(req, h) {
   return new Promise(function (resolve, reject) {
@@ -32,7 +33,7 @@ function createEditorial(req, h) {
   return h.view('./entities/create-editorial', { title: 'Create editorial' }, { layout: 'main' });
 }
 
-function saveEditorial(req, h) {
+function saveEditorial(req) {
   const { name, address, phone } = req.payload;
 
   return EditorialsModel.create({ name, address, phoneNumber: phone })

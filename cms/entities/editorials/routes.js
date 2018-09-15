@@ -4,7 +4,8 @@ const {
   createEditorial,
   getEditorials,
   getEditorialById,
-  saveEditorial
+  saveEditorial,
+  updateEditorial
 } = require('./handlers');
 
 module.exports = [
