@@ -33,7 +33,7 @@ function createAuthor(req, h) {
   return h.view('./entities/create-author', { title: 'Create author' }, { layout: 'main' });
 }
 
-function saveAuthor(req, h) {
+function saveAuthor(req) {
   const { name, address, phone } = req.payload;
 
   return AuthorsModel.create({ name, address, phoneNumber: phone })

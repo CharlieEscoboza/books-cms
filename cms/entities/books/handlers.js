@@ -36,7 +36,7 @@ function createBook(req, h) {
   return h.view('./entities/create-book', { title: 'Create book' }, { layout: 'main' });
 }
 
-function saveBook(req, h) {
+function saveBook(req) {
   const { name, edition, isbn, tags, review, picture } = req.payload;
 
   return BooksModel.create({ name, edition, ISBN: isbn, tags: tags.split(','), review, picture })
