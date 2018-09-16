@@ -6,6 +6,7 @@
   "scripts": {
     "eslint": "eslint --fix \"./**/*.js\"",
     "dev": "nodemon ./index.js",
+    "build": "node ./index.js",
     "precommit": "npm run eslint"
   },
   "dependencies": {
