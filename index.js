@@ -7,7 +7,7 @@ const express = require('express'),
   bookRoutes = require('./entities/books/routes'),
   editorialRoutes = require('./entities/editorials/routes'),
   PORT = process.env.PORT || 8080,
-  HOST = 'localhost';
+  HOST = process.env.HOST || 'localhost';
 
 
   const HP_DATA = {
@@ -46,4 +46,4 @@ app.get('/', (req, resp) => {
   resp.render('home', HP_DATA);
 });
 
-app.listen(PORT, HOST, () => console.log(`App running on http://${HOST}:${PORT}`)); /* eslint-disable-line no-console */
+app.listen(PORT, () => console.log(`App running on http://${HOST}:${PORT}`)); /* eslint-disable-line no-console */
