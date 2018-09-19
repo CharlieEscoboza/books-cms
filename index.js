@@ -6,7 +6,7 @@ const express = require('express'),
   authorRoutes = require('./entities/authors/routes'),
   bookRoutes = require('./entities/books/routes'),
   editorialRoutes = require('./entities/editorials/routes'),
-  PORT = 8080,
+  PORT = process.env.PORT || 8080,
   HOST = 'localhost';
 
 
